@@ -34,7 +34,7 @@
         <maven.compiler.source>9</maven.compiler.source>
         <maven.compiler.target>9</maven.compiler.target>
         <!--  Dependencies - Test  -->
-        <version.testng>7.4.0</version.testng>
+        <version.testng>7.5.1</version.testng>
         <!--  aligns with Arquillian TestNG version  -->
         <version.junit>4.13.1</version.junit>
         <version.hamcrest>1.3</version.hamcrest>

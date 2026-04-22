@@ -66,7 +66,7 @@
         <version.plugin.copy.rename>1.0</version.plugin.copy.rename>
         <version.plugin.release>2.5.3</version.plugin.release>
         <version.plugin.gpg>1.6</version.plugin.gpg>
-        <version.plugin.staging>1.6.3</version.plugin.staging>
+        <version.plugin.publishing>0.8.0</version.plugin.publishing>
 
         <!-- General Properties -->
         <skipChecks>false</skipChecks>
@@ -81,10 +81,6 @@
         <release.revision>Final</release.revision>
 
         <checkstyle.methodNameFormat>^_?[a-z][a-zA-Z0-9]*$</checkstyle.methodNameFormat>
-        <!-- whether autorelease maven central staging repositories - default true to allow review and manually release repositories -->
-        <autorelease>false</autorelease>
-        <!-- keeping closed repos with failure - default is false because the errors are visible in the maven output, but true will leave the repo open for investigation in Sonatype Nexus -->
-        <keepStagingReposOnFailure>false</keepStagingReposOnFailure>
 
         <revremark>${release.revision}</revremark>
         <inceptionYear>2018</inceptionYear>
@@ -126,14 +122,12 @@
 
     <distributionManagement>
         <repository>
-            <id>ossrh</id>
-            <name>Sonatype OSSRH - Release Staging Area</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>central</id>
+            <url>https://central.sonatype.org/publish/publish-maven/</url>
         </repository>
         <snapshotRepository>
-            <id>ossrh</id>
-            <name>Sonatype OSSRH Snapshots</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <id>central-snapshots</id>
+            <url>https://central.sonatype.com/repository/maven-snapshots/</url>
             <uniqueVersion>true</uniqueVersion>
         </snapshotRepository>
     </distributionManagement>
@@ -794,14 +788,13 @@
                         </executions>
                     </plugin>
                     <plugin>
-                        <groupId>org.sonatype.plugins</groupId>
-                        <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>${version.plugin.staging}</version>
+                        <groupId>org.sonatype.central</groupId>
+                        <artifactId>central-publishing-maven-plugin</artifactId>
+                        <version>${version.plugin.publishing}</version>
                         <extensions>true</extensions>
                         <configuration>
-                            <serverId>ossrh</serverId>
-                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                            <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                            <publishingServerId>central</publishingServerId>
+                            <autoPublish>false</autoPublish>
                         </configuration>
                     </plugin>
                 </plugins>

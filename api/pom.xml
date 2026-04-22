@@ -93,7 +93,6 @@
             <plugin>
                 <groupId>biz.aQute.bnd</groupId>
                 <artifactId>bnd-maven-plugin</artifactId>
-                <version>4.2.0</version>
                 <executions>
                     <execution>
                         <goals>
@@ -135,7 +134,6 @@
                     <plugin>
                 <groupId>biz.aQute.bnd</groupId>
                 <artifactId>bnd-baseline-maven-plugin</artifactId>
-                <version>4.2.0</version>
                 <configuration>
                     <base>
                         <version>1.0</version>

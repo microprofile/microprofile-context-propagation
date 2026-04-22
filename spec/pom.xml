@@ -31,8 +31,6 @@
     <description>MicroProfile Context Propagation :: Specification</description>
 
     <properties>
-        <asciidoctor-maven.version>1.5.6</asciidoctor-maven.version>
-        <asciidoctorj-pdf.version>1.5.0-alpha.15</asciidoctorj-pdf.version>
         <license>Apache License v 2.0</license>
         <maven.build.timestamp.format>MMMM dd, yyyy</maven.build.timestamp.format>
         <revisiondate>${maven.build.timestamp}</revisiondate>
@@ -46,12 +44,12 @@
             <plugin>
                 <groupId>org.asciidoctor</groupId>
                 <artifactId>asciidoctor-maven-plugin</artifactId>
-                <version>${asciidoctor-maven.version}</version>
+                <version>${version.plugin.asciidoctor}</version>
                 <dependencies>
                     <dependency>
                         <groupId>org.asciidoctor</groupId>
                         <artifactId>asciidoctorj-pdf</artifactId>
-                        <version>${asciidoctorj-pdf.version}</version>
+                        <version>${version.plugin.asciidoctor.pdf}</version>
                     </dependency>
                 </dependencies>
                 <executions>
